@@ -3,7 +3,7 @@ import{ useRef } from "react";
 // eslint-disable-next-line react/prop-types
 export default function AddTodo({addNewTodo}) {
 
-    const inputRef = useRef()
+    const inputRef = useRef([])
 
     const handleSubmit = (e) => {
       e.preventDefault();
