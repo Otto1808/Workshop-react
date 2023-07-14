@@ -1,21 +1,27 @@
-export default function ListTodos () {
-    return(
-        <section>
-             <h2>Todos</h2>
-          <ul>
-            <li>
-              <input type="checkbox"/>
-              Apprendre React
+// eslint-disable-next-line react/prop-types
+export default function ListTodos({todos, changeTodoStatus}) {
+
+  /* const handleClick = () => {
+    const newTodos = [...todos];
+    newTodos.push("this is my new todo");
+    setTodos(newTodos);
+  } */
+
+  return(
+      <section>
+        <h2>Todos</h2>
+        <ul>
+          {todos.map((todo, index) => (
+            // eslint-disable-next-line react/jsx-key
+            <li key={index}>
+              <input type="checkbox" 
+                id={todo.id} 
+                checked={todo.done} 
+                onChange={() =>{changeTodoStatus(todo.id)}}/>
+              {todo.name}
             </li>
-            <li>
-              <input type="checkbox"/>
-              Apprendre à manger
-            </li>
-            <li>
-              <input type="checkbox"/>
-              Apprendre à dormir
-            </li>
-          </ul>
-        </section>
-    )
+          ))}
+        </ul>
+      </section>
+  )
 }
