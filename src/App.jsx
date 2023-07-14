@@ -24,6 +24,14 @@ function App() {
     setTodos(newTodos);
   }
 
+  const deleteTodo = (id) => {
+    const newTodos = todos.filter((todo) => {
+      if(todo.id === id) return false;
+      return true;
+    });
+    setTodos(newTodos);
+  }
+
   const addNewTodo = (newTodoName) => {
     const newTodo = {
       id: uuidv4(),
@@ -61,6 +69,7 @@ function App() {
         <ListTodos 
         todos={todos}
         changeTodoStatus={changeTodoStatus}
+        deleteTodo={deleteTodo}
         />
       </main>
   )

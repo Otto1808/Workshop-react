@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-export default function ListTodos({todos, changeTodoStatus}) {
+export default function ListTodos({todos, changeTodoStatus, deleteTodo}) {
 
   /* const handleClick = () => {
     const newTodos = [...todos];
@@ -19,6 +19,8 @@ export default function ListTodos({todos, changeTodoStatus}) {
                 checked={todo.done} 
                 onChange={() =>{changeTodoStatus(todo.id)}}/>
               {todo.name}
+
+              <div role="button" onClick={() => { deleteTodo(todo.id)}}>Delete</div>
             </li>
           ))}
         </ul>
